@@ -15,9 +15,6 @@ $lang['text_payment_status'] 	                = 'Payment %s (%s)';
 $lang['text_exp_month'] 	    = 'MM';
 $lang['text_exp_year'] 	        = 'YY';
 
-$lang['text_cc_cvc'] 	        = 'CVC';
-$lang['text_add_new_address'] 	= 'Enter my billing address';
-
 $lang['label_title'] 	                        = 'Title';
 $lang['label_description'] 	                    = 'Description';
 $lang['label_transaction_mode']                 = 'Transaction Mode';
