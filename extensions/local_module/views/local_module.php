@@ -112,23 +112,29 @@
 										<dd class="text-muted">
 											<?php if ($has_delivery) { ?>
 												<?php if ($delivery_status === 'open') { ?>
-													<?php echo sprintf(lang('text_delivery_time_info'), sprintf(lang('text_in_minutes'), $delivery_time)); ?>
+                                                                                                <?php echo lang('text_delivery_time_info') ?>
+                                                                                                <span id="text_in_minutes" style="display:none;"><?php echo lang('text_in_minutes') ?></span>
+                                                                                                <span class="estimatedWaitForDelivery">
+                                                                                                    <?php echo sprintf(lang('text_in_minutes'), $delivery_time); ?>
 												<?php } else if ($delivery_status === 'opening') { ?>
-													<?php echo sprintf(lang('text_delivery_time_info'), sprintf(lang('text_starts'), $delivery_time)); ?>
+													<?php echo sprintf(lang('text_starts'), $delivery_time); ?>
 												<?php } else { ?>
-													<?php echo sprintf(lang('text_delivery_time_info'), lang('text_is_closed')); ?>
+													<?php echo "" ?>
 												<?php } ?>
-											<?php } ?>
+                                                                                                </span>
+											<?php } ?> 
 										</dd>
 										<dd class="text-muted">
 											<?php if ($has_collection) { ?>
 												<?php if ($collection_status === 'open') { ?>
+                                                                                                <span class="estimatedWaitForDelivery">
 													<?php echo sprintf(lang('text_collection_time_info'), sprintf(lang('text_in_minutes'), $collection_time)); ?>
 												<?php } else if ($collection_status === 'opening') { ?>
 													<?php echo sprintf(lang('text_collection_time_info'), sprintf(lang('text_starts'), $collection_time)); ?>
 												<?php } else { ?>
 													<?php echo sprintf(lang('text_collection_time_info'), lang('text_is_closed')); ?>
 												<?php } ?>
+                                                                                                </span>
 											<?php } ?>
 										</dd>
 									</dl>
