@@ -1,6 +1,6 @@
 jQuery(function() {
     // This identifies your website in the createToken call below
-    Stripe.setPublishableKey('pk_test_d5BEDmaLhu6JeckNBeAWYcyq');
+    Stripe.setPublishableKey($('input[name="stripe_publishable_key"]').val());
 
     $('[data-numeric]').payment('restrictNumeric');
     $('[data-stripe="number"]').payment('formatCardNumber');
@@ -27,6 +27,7 @@ jQuery(function() {
                 // Disable the submit button to prevent repeated clicks
                 $button.addClass('disabled');
 
+                console.log('requesting Stripe card token...')
                 Stripe.card.createToken($form, stripeResponseHandler);
             }
 
@@ -40,6 +41,7 @@ jQuery(function() {
         var $form = $('#checkout-form');
         var $button = $('#cart-box .cart-buttons .btn');
 
+        console.log(response);
         if (response.error) {
             // Show the errors on the form
             appendError(response.error.message);

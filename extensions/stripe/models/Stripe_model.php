@@ -33,15 +33,17 @@ class Stripe_model extends TI_Model {
 		$payment = $this->extension->getPayment('stripe');
 		$settings = !empty($payment['ext_data']) ? $payment['ext_data'] : array();
 
-		$url = 'https://api.stripe.com/v1/'. $end_point;
+                $url = 'https://api.stripe.com/v1/'. $end_point;
 
 		if (isset($settings['live_secret_key']) AND $settings['transaction_mode'] === 'live') {
 			$options['HTTPHEADER'] = array("Authorization: Bearer " . $settings['live_secret_key']);
-		} else if (isset($settings['live_secret_key'])) {
+		} else if (isset($settings['test_secret_key'])) {
 			$options['HTTPHEADER'] = array("Authorization: Bearer " . $settings['test_secret_key']);
 		}
 
 		$options['POSTFIELDS'] = $data;
+                
+                log_message('error', http_build_query($options['POSTFIELDS'], '', '&'));
 
 		// Get response from the server.
 		$response = get_remote_data($url, $options);
