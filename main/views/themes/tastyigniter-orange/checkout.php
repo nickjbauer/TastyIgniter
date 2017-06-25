@@ -242,8 +242,8 @@
 														</div>
 													</div>
 													<div class="form-group">
-														<label for=""><?php echo lang('label_country'); ?></label>
-														<select name="address[<?php echo $address_row; ?>][country_id]" class="form-control">
+														<!-- <label for=""><?php echo lang('label_country'); ?></label> -->
+														<select name="address[<?php echo $address_row; ?>][country_id]" class="form-control" style="display:none;">
 															<?php foreach ($countries as $country) { ?>
 																<?php if ($country['country_id'] === $address['country_id']) { ?>
 																	<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>

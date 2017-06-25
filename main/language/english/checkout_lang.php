@@ -57,7 +57,7 @@ $lang['label_hour']                     = 'Hour';
 $lang['label_minute']                   = 'Minute';
 $lang['label_payment_method']           = 'Payment Method';
 $lang['label_terms']                    = 'By clicking I Agree, you agree to the <a href="%s" data-toggle="modal" data-target="#terms-modal">Terms and Conditions</a> set out by this site, including our Cookie Use.';
-$lang['label_comment']                  = 'Add Comments';
+$lang['label_comment']                  = 'Special instructions for driver (optional):';
 $lang['label_ip']                       = 'IP Address';
 
 $lang['button_agree_terms']             = 'I Agree';
