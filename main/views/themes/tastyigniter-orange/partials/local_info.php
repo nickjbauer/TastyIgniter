@@ -10,13 +10,13 @@
 </div>
 
 <div class="col-xs-12 wrap-none wrap-bottom">
-	<div class="col-xs-12 col-sm-6">
+	<div class="col-xs-12 col-sm-12">
 		<?php if ($working_hours) { ?>
 			<div class="panel panel-default panel-nav-tabs">
 				<div class="panel-heading">
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#opening-hours" data-toggle="tab"><?php echo lang('text_opening_hours'); ?></a></li>
-						<?php if ($has_delivery) { ?>
+						<?php if ($has_delivery && false) { ?>
 							<li><a href="#delivery-hours" data-toggle="tab"><?php echo lang('text_delivery_hours'); ?></a></li>
 						<?php } ?>
 						<?php if ($has_collection) { ?>
@@ -62,7 +62,7 @@
 					<?php if (!empty($working_type['opening']) AND $working_type['opening'] == '24_7') { ?>
 						<div class="list-group-item"><?php echo lang('text_opens_24_7'); ?></div>
 					<?php } ?>
-					<?php if ($has_delivery) { ?>
+					<?php if ($has_delivery && false) { ?>
 						<div class="list-group-item"><i class="fa fa-clock-o fa-fw"></i>&nbsp;<b><?php echo lang('text_delivery_time'); ?></b><br />
 							<?php if ($delivery_status === 'open') { ?>
 								<?php echo sprintf(lang('text_in_minutes'), $delivery_time); ?>
@@ -84,12 +84,12 @@
 							<?php } ?>
 						</div>
 					<?php } ?>
-					<?php if ($has_delivery) { ?>
+					<?php if ($has_delivery && false) { ?>
 						<div class="list-group-item"><i class="fa fa-clock-o fa-fw"></i>&nbsp;<b><?php echo lang('text_last_order_time'); ?></b><br />
 							<?php echo $last_order_time; ?>
 						</div>
 					<?php } ?>
-					<?php if ($payments) { ?>
+					<?php if ($payments && false) { ?>
 						<div class="list-group-item"><i class="fa fa-paypal fa-fw"></i>&nbsp;<b><?php echo lang('text_payments'); ?></b><br />
 							<?php echo $payments; ?>.
 						</div>
