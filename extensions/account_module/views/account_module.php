@@ -2,6 +2,7 @@
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<div class="list-group list-group-responsive">
+                                <a href="<?php echo site_url('').'/local/joliet'; ?>" class="list-group-item"><span class="fa fa-list-alt"></span>&nbsp;&nbsp;&nbsp;<?php echo lang('button_order'); ?></a>
 				<a href="<?php echo site_url('account/account'); ?>" class="list-group-item <?php echo ($page === 'account') ? 'active' : ''; ?>"><span class="fa fa-user"></span>&nbsp;&nbsp;&nbsp;<?php echo lang('text_account'); ?></a>
 				<a href="<?php echo site_url('account/details'); ?>" class="list-group-item <?php echo ($page === 'details') ? 'active' : ''; ?>"><span class="fa fa-edit"></span>&nbsp;&nbsp;&nbsp;<?php echo lang('text_edit_details'); ?></a>
 				<a href="<?php echo site_url('account/address'); ?>" class="list-group-item <?php echo ($page === 'address') ? 'active' : ''; ?>"><span class="fa fa-book"></span>&nbsp;&nbsp;&nbsp;<?php echo lang('text_address'); ?></a>

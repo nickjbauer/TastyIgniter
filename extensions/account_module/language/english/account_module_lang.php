@@ -15,5 +15,7 @@ $lang['text_logout'] 			= 'Logout';
 
 $lang['label_heading'] 			= 'Heading:';
 
+$lang['button_order'] 			= 'Place New Order';
+
 /* End of file account_lang.php */
 /* Location: ./extensions/account_module/language/english/account_module_lang.php */
