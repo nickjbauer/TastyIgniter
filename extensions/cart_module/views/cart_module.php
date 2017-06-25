@@ -21,6 +21,8 @@
                                     <label class="btn <?php echo ($order_type === '1') ? 'btn-default btn-primary active' : 'btn-default'; ?>" data-btn="btn-primary">
                                         <input type="radio" name="order_type" value="1" <?php echo ($order_type === '1') ? 'checked="checked"' : ''; ?>>&nbsp;&nbsp;<strong><?php echo lang('text_delivery'); ?></strong>
                                         <span class="small center-block">
+                                            <span id="text_in_minutes" style="display:none;"><?php echo lang('text_in_minutes') ?></span>
+                                            <span class="estimatedWaitForDelivery">
                                             <?php if ($delivery_status === 'open') { ?>
                                                 <?php echo sprintf(lang('text_in_minutes'), $delivery_time); ?>
                                             <?php } else if ($delivery_status === 'opening') { ?>
@@ -28,6 +30,7 @@
                                             <?php } else { ?>
                                                 <?php echo lang('text_is_closed'); ?>
                                             <?php } ?>
+                                            </span>
                                         </span>
                                     </label>
                                 <?php } ?>

@@ -26,6 +26,10 @@ class Local_module extends Main_Controller {
 		}
 
 		$this->template->setStyleTag(extension_url('local_module/views/stylesheet.css'), 'local-module-css', '100000');
+                
+                // Pizza Pronto - Real-time delivery addition
+                $this->template->setScriptTag(extension_url('local_module/views/assets/real-time-delivery.js'), 'real-time-delivery-js', '100001');
+                $this->template->setScriptTag(extension_url('local_module/views/assets/get-location.js'), 'get-location-js', '100002');
 
 		$data['location_search_mode'] = 'multi';
 		if (isset($ext_data['location_search_mode']) AND $ext_data['location_search_mode'] === 'single') {
