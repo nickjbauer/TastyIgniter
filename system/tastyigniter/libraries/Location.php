@@ -520,7 +520,16 @@ class Location {
 			$this->CI->session->set_userdata('local_info', $local_info);
 
 			$this->initialize($local_info);
-		}
+		}else{
+                    //still set geocode so it shows up in the page
+			$local_info = $this->CI->session->userdata('local_info');
+
+			$local_info['geocode'] = $output;
+
+			$this->CI->session->set_userdata('local_info', $local_info);
+
+			$this->initialize($local_info);
+                }
 
 		return $delivery_area;
 	}
@@ -752,7 +761,7 @@ class Location {
 
         $temp_query = (is_array($temp_query)) ? implode(', ', $temp_query) : $temp_query;
 
-        $url  = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($temp_query) .'&sensor=false'; //encode $postcode string and construct the url query
+        $url  = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($temp_query); //encode $postcode string and construct the url query
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

@@ -1,5 +1,5 @@
 <div id="local-box" <?php echo ($location_search === TRUE) ? 'class="local-box-fluid"' : ''; ?>>
-	<div class="container">
+        <div class="container">
             <div style="display:none" id="search_query"><?php echo $search_query ?></div>
 		<div class="row">
 			<?php if ($location_search === TRUE) { ?>
@@ -227,17 +227,24 @@
                 $('input[name=\'search_query\']').val(search_query);
             }
             console.log("search_query: " + search_query);
-            
+            var search_url = js_site_url('local_module/local_module/search');
                 $.ajax({
-                        url: js_site_url('local_module/local_module/search'),
+                        url: search_url,
                         type: 'POST',
                         data: 'search_query=' + search_query,
                         dataType: 'json',
                         success: function(json) {
                             if(!should_redirect){
-                               json["redirect"] = undefined;
-                             }
+                                json["redirect"] = undefined;
+                            }
+                            if( false && $('#search_query').val().length == 0){
+                                json["redirect"] = window.location.href;
+                            }
                             updateLocalBox(json);                            
+                        },
+                        error: function(xhr, textStatus, errorThrown){
+                            console.log("searchLocal: " + textStatus);
+                            console.log("searchLocal: " + errorThrown);
                         }
                 });
 	}
@@ -248,14 +255,6 @@
 		var alert_message = '';
 
 		if (json['redirect']) {
-                    // only redirect if its different!!!
-//                    if($('#search_query').text().length == 0){
-//                        window.location.href = json['redirect'];
-//                    }
-//                    if( window.location.href !== json['redirect']) {
-//                        window.location.href = json['redirect'];
-//                    }
-                    
                     window.location.href = json['redirect'];
 		}
 
@@ -270,7 +269,7 @@
                 closeLocalSearch();
 		if ($('#cart-box').is(':visible')) {
 			$('#cart-box').load(js_site_url('cart_module/cart_module #cart-box > *'), function (response) {
-				if (alert_message != '') {
+				if (alert_message !== '' && alert_message.indexOf('<?php echo lang('alert_no_found_restaurant') ?>') === -1 ) {
 					local_alert.empty();
 					local_alert.append(alert_message);
 					$('#local-alert').fadeIn('slow').fadeTo('fast', 0.5).fadeTo('fast', 1.0);

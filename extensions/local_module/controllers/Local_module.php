@@ -180,7 +180,7 @@ class Local_module extends Main_Controller {
 		}
 
 		$redirect = '';
-		if (!isset($json['error'])) {
+		if (!isset($json['error']) || $result = 'outside') {
 			$redirect = $json['redirect'] = site_url('local?location_id='.$this->location->getId());
 		}
 

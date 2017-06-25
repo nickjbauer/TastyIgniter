@@ -9,7 +9,7 @@ $lang['text_order_summary'] 	            = 'Order delicious food online';
 $lang['text_goto_menus'] 		            = 'Go to Menu';
 $lang['text_location_summary'] 			    = 'We can deliver to you %s';
 $lang['text_enter_location'] 			    = 'Check if we can deliver to you';
-$lang['text_delivery_coverage'] 			= '<span class="text-danger">Sorry, but this restaurant does not deliver to your location</span>';
+$lang['text_delivery_coverage'] 			= '<span class="text-danger">Sorry, but we do not yet deliver to your location</span>';
 $lang['text_is_opened'] 			        = '<span class="text-success">We are open</span>';
 $lang['text_closed'] 			            = '<span class="text-close text-danger">CLOSED</span>';
 $lang['text_is_closed'] 			        = '<span class="text-close text-danger">is CLOSED</span>';
@@ -59,7 +59,7 @@ $lang['alert_unknown_error'] 			    = '<p class="alert-danger">Error occurred, p
 $lang['alert_no_search_setting'] 		    = '<p class="alert-danger">Location Search By setting has not been specified.</p>';
 $lang['alert_no_search_query'] 		        = '<p class="alert-danger">Please type in a postcode/address to check if we can deliver to you.</p>';
 $lang['alert_invalid_search_query'] 	    = '<p class="alert-danger">We couldn\'t locate the entered address/postcode, please enter a valid address/postcode.</p>';
-$lang['alert_no_found_restaurant'] 	        = '<p class="alert-danger">We do not have any local restaurant near you.</p>';
+$lang['alert_no_found_restaurant'] 	        = '<p class="alert-danger">We do not currently deliver to your area.</p>';
 
 
 /* End of file local_module_lang.php */

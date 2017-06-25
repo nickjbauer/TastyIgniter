@@ -65,7 +65,7 @@ $lang['alert_location_closed'] 			    = '<p class="alert-danger">Sorry, you can\
 $lang['alert_order_unavailable'] 		    = '<p class="alert-danger">This restaurant is unavailable to take orders at the moment.</p>';
 $lang['alert_delivery_unavailable'] 	    = '<p class="alert-danger">This restaurant is unavailable to take delivery orders at the moment.</p>';
 $lang['alert_collection_unavailable'] 	    = '<p class="alert-danger">This restaurant is unavailable to take pick-up orders at the moment.</p>';
-$lang['alert_delivery_coverage']            = '<p class="alert-danger">Sorry, but this restaurant does not deliver to your location</b>';
+$lang['alert_delivery_coverage']            = '<p class="alert-danger">Sorry, but we do not yet deliver to your location</b>';
 $lang['alert_min_delivery_order_total'] 	= '<p class="alert-warning">Order total is below the minimum delivery order total. <br />You need to spend %s or more to order for delivery</p>';
 $lang['alert_coupon_removed'] 	            = '<p class="alert-success">Your coupon has been removed successfully.</p>';
 $lang['alert_coupon_applied'] 	            = '<p class="alert-success">Your coupon has been applied successfully.</p>';
