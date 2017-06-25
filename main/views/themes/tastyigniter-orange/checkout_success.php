@@ -38,20 +38,15 @@
 			                    <h3 class="panel-title"><strong><?php echo lang('text_order_details'); ?></strong></h3>
 			                </div>
 			                <div class="panel-body">
-			                    <div class="col-sm-4">
+			                    <div class="col-sm-6">
 			                        <p><?php echo $order_details; ?></p>
 			                    </div>
-			                    <div class="col-sm-4">
+			                    <div class="col-sm-6">
 									<?php if ($delivery_address) { ?>
 										<strong><?php echo lang('text_delivery_address'); ?>:</strong>
 										<address><?php echo $delivery_address; ?></address>
 									<?php } ?>
 			                    </div>
-								<div class="col-sm-4">
-									<strong><?php echo lang('text_your_local'); ?></strong><br />
-									<strong><?php echo $location_name; ?></strong><br />
-									<address><?php echo $location_address; ?></address>
-								</div>
 			                </div>
 			            </div>
 
