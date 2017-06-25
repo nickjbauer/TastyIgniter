@@ -1,5 +1,6 @@
 <div id="local-box" <?php echo ($location_search === TRUE) ? 'class="local-box-fluid"' : ''; ?>>
 	<div class="container">
+            <div style="display:none" id="search_query"><?php echo $search_query ?></div>
 		<div class="row">
 			<?php if ($location_search === TRUE) { ?>
 				<div id="local-search" class="col-md-12 text-center">
@@ -172,6 +173,7 @@
 	</div>
 <script type="text/javascript"><!--
 	$(document).ready(function() {
+            closeLocalSearch();
 		$('.review-toggle').on('click', function() {
 			$('a[href="#reviews"]').tab('show');
 		});
@@ -186,19 +188,47 @@
 			$('.panel-local .panel-heading .local-change').slideUp();
 		}
 	}
+        
+        function closeLocalSearch() {
+            $('.panel-local .panel-heading .local-search').slideUp();
+            $('.panel-local .panel-heading .local-change').slideDown();
+	}
+        
+        function openLocalSearch() {
+            $('.panel-local .panel-heading .local-search').slideDown();
+            $('.panel-local .panel-heading .local-change').slideUp();
+	}        
 
-	function searchLocal() {
-		var search_query = $('input[name=\'search_query\']').val();
-
-		$.ajax({
-			url: js_site_url('local_module/local_module/search'),
-			type: 'POST',
-			data: 'search_query=' + search_query,
-			dataType: 'json',
-			success: function(json) {
-				updateLocalBox(json);
-			}
-		});
+	function searchLocal(search_query) {
+            var should_redirect = true;
+            var existing_search_query = $('input[name=\'search_query\']').val();
+            
+            // don't redirect if it was already set.
+            if(existing_search_query){
+                should_redirect = false;
+            }
+            
+            // if a value is passed in, that means its NOT from the UI, but from some function
+            if(search_query === undefined || search_query === null){
+                search_query = existing_search_query;
+                should_redirect = true;
+            }else{
+                $('input[name=\'search_query\']').val(search_query);
+            }
+            console.log("search_query: " + search_query);
+            
+                $.ajax({
+                        url: js_site_url('local_module/local_module/search'),
+                        type: 'POST',
+                        data: 'search_query=' + search_query,
+                        dataType: 'json',
+                        success: function(json) {
+                            if(!should_redirect){
+                               json["redirect"] = undefined;
+                             }
+                            updateLocalBox(json);                            
+                        }
+                });
 	}
 
 	function updateLocalBox(json) {
@@ -207,7 +237,15 @@
 		var alert_message = '';
 
 		if (json['redirect']) {
-			window.location.href = json['redirect'];
+                    // only redirect if its different!!!
+//                    if($('#search_query').text().length == 0){
+//                        window.location.href = json['redirect'];
+//                    }
+//                    if( window.location.href !== json['redirect']) {
+//                        window.location.href = json['redirect'];
+//                    }
+                    
+                    window.location.href = json['redirect'];
 		}
 
 		if (json['error']) {
@@ -218,6 +256,7 @@
 			alert_message = '<div class="alert">' + alert_close + json['success'] + '</div>';
 		}
 
+                closeLocalSearch();
 		if ($('#cart-box').is(':visible')) {
 			$('#cart-box').load(js_site_url('cart_module/cart_module #cart-box > *'), function (response) {
 				if (alert_message != '') {
