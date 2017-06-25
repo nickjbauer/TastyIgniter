@@ -80,7 +80,7 @@
 									<?php } ?>
 									<dl <?php echo (!empty($location_image)) ? 'class="box-image"' : ''; ?>>
 										<dd><h4><?php echo $location_name; ?></h4></dd>
-										<?php if (config_item('allow_reviews') !== '1') { ?>
+										<?php if (config_item('allow_reviews') !== '1' && false) { ?>
 											<dd class="text-muted">
 												<div class="rating rating-sm">
 													<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star-half-o"></span><span class="fa fa-star-o"></span>
@@ -88,7 +88,7 @@
 												</div>
 											</dd>
 										<?php } ?>
-										<dd><span class="text-muted"><?php echo str_replace('<br />', ', ', $location_address); ?></span></dd>
+										<!-- <dd><span class="text-muted"><?php echo str_replace('<br />', ', ', $location_address); ?></span></dd> -->
 									</dl>
 								</div>
 								<div class="col-xs-12 box-divider visible-xs"></div>
