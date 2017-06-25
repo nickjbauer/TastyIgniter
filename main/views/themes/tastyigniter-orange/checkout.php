@@ -240,19 +240,7 @@
 																<?php echo form_error('address['.$address_row.'][postcode]', '<span class="text-danger">', '</span>'); ?>
 															</div>
 														</div>
-													</div>
-													<div class="form-group">
-														<!-- <label for=""><?php echo lang('label_country'); ?></label> -->
-														<select name="address[<?php echo $address_row; ?>][country_id]" class="form-control" style="display:none;">
-															<?php foreach ($countries as $country) { ?>
-																<?php if ($country['country_id'] === $address['country_id']) { ?>
-																	<option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
-																<?php } else { ?>
-																	<option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
-																<?php } ?>
-															<?php } ?>
-														</select>
-														<?php echo form_error('address['.$address_row.'][country_id]', '<span class="text-danger">', '</span>'); ?>
+                                                                                                                <input type="hidden" name="address[<?php echo $address_row; ?>][country_id]" class="form-control" value="223" />
 													</div>
 												</div>
 
