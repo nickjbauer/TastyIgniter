@@ -212,6 +212,11 @@
             // don't redirect if it was already set.
             if(existing_search_query){
                 should_redirect = false;
+                //compare it to parameter
+                if(existing_search_query === search_query){
+                    console.log("no change to search_query, no redirect")
+                    return;
+                }
             }
             
             // if a value is passed in, that means its NOT from the UI, but from some function
