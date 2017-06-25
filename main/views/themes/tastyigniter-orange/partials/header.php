@@ -73,7 +73,7 @@
 						<button type="button" class="btn-navbar navbar-toggle" data-toggle="collapse" data-target="#main-header-menu-collapse">
 							<i class="fa fa-align-justify"></i>
 						</button>
-                        <div class="logo">
+<!--                        <div class="logo">
                             <a class="" href="<?php echo rtrim(site_url(), '/').'/'; ?>">
 								<?php if (get_theme_options('logo_image')) { ?>
 									<img alt="<?php echo $this->config->item('site_name'); ?>" src="<?php echo image_url(get_theme_options('logo_image')) ?>" height="40">
@@ -85,7 +85,7 @@
 									<img alt="<?php echo $this->config->item('site_name'); ?>" src="<?php echo image_url($this->config->item('site_logo')) ?>" height="40">
 								<?php } ?>
 							</a>
-						</div>
+						</div>-->
 					</div>
                     <div class="col-sm-7">
 						<div class="collapse navbar-collapse" id="main-header-menu-collapse">
