@@ -38,7 +38,7 @@
                         <li><a href="#local-reviews" data-toggle="tab"><?php echo lang('text_tab_review'); ?></a></li>
                         <?php } ?>
                         <li><a href="#local-information" data-toggle="tab"><?php echo lang('text_tab_info'); ?></a></li>
-                        <?php if (!empty($local_gallery)) { ?>
+                        <?php if (!empty($local_gallery) && false) { ?>
                             <li><a href="#local-gallery" data-toggle="tab"><?php echo lang('text_tab_gallery'); ?></a></li>
                         <?php } ?>
                     </ul>
@@ -71,7 +71,7 @@
                         <?php echo load_partial('local_info', $local_info); ?>
                     </div>
 
-                    <?php if (!empty($local_gallery)) { ?>
+                    <?php if (!empty($local_gallery) && false) { ?>
                         <div id="local-gallery" class="tab-pane row wrap-all">
                             <?php echo load_partial('local_gallery', $local_gallery); ?>
                         </div>
