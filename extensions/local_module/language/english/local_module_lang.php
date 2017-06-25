@@ -14,7 +14,7 @@ $lang['text_is_opened'] 			        = '<span class="text-success">We are open</sp
 $lang['text_closed'] 			            = '<span class="text-close text-danger">CLOSED</span>';
 $lang['text_is_closed'] 			        = '<span class="text-close text-danger">is CLOSED</span>';
 $lang['text_opening_time'] 			        = '<span class="text-close text-danger">Opening %s</span>';
-$lang['text_delivery_time_info'] 	        = 'Delivery ETA';
+$lang['text_delivery_time_info'] 	        = "At your door ";
 $lang['text_collection_time_info'] 	        = 'Pick-up %s';
 $lang['text_offer'] 			            = 'Service Offered';
 $lang['text_delivery_only'] 			    = 'Delivery only';

@@ -1,6 +1,13 @@
 jQuery(function() {
-    console.log("Pizza Pronto Real-time");
-
+    
+    String.prototype.format = function(){
+        var a = this, b;
+        for(b in arguments){
+            a = a.replace(/%[a-z]/,arguments[b]);
+        }
+        return a; // Make chainable
+    };
+    
     function pulsate() {
       $(".estimatedWaitForDelivery").
       css({"font-weight": "bolder"}).
@@ -18,13 +25,7 @@ jQuery(function() {
         var max = Math.floor(45);
         var rando = Math.floor(Math.random() * (max - min)) + min;
         
-        String.prototype.format = function(){
-            var a = this, b;
-            for(b in arguments){
-                a = a.replace(/%[a-z]/,arguments[b]);
-            }
-            return a; // Make chainable
-        };
+
         
         var formatString = $("#text_in_minutes").text();
         
