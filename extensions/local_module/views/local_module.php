@@ -1,5 +1,6 @@
 <div id="local-box" <?php echo ($location_search === TRUE) ? 'class="local-box-fluid"' : ''; ?>>
         <div class="container">
+            <div style="display:none" id="reverse_geocode"></div>
             <div style="display:none" id="search_query"><?php echo $search_query ?></div>
 		<div class="row">
 			<?php if ($location_search === TRUE) { ?>

@@ -74,8 +74,12 @@ $(document).ready(function() {
     function geosuccess(position) {
         _location = position;
         console.log(position);
+        var tryForStreetAddress = false;
         if(position.coords.accuracy > 100){
             console.log("cannot determine street address due to poor accuracy");
+        }else{
+            console.log("we might be able to get the street address");
+            tryForStreetAddress = true;
         }
         var url = reverseGeoUrlTemplate.format(
             position.coords.latitude,
@@ -85,8 +89,50 @@ $(document).ready(function() {
         console.log(url);
         $.get(url,function(data, status){
             console.log("Google Api call returned: " + status);
-            
+            if(status === 'success'){
+                $("#reverse_geocode").text(JSON.stringify(data));
+            }
             var address_components = data.results[0].address_components;
+            var maps_street_number = '';
+            var maps_route = '';
+            var maps_locality = '';
+            var maps_postal_code = '';
+            var maps_administrative_area_level_1 = '';
+            if(tryForStreetAddress){
+                $.each(address_components, function(i, v) {
+                    if(v.hasOwnProperty("types")){
+                        if(v.types.indexOf("street_number") > -1){
+                            maps_street_number = v.short_name;
+                        }
+                        if(v.types.indexOf("route") > -1){
+                            maps_route = v.short_name;
+                        }
+                        if(v.types.indexOf("locality") > -1){
+                            maps_locality = v.short_name;
+                        }
+                        if(v.types.indexOf("administrative_area_level_1") > -1){
+                            maps_administrative_area_level_1 = v.short_name;
+                        }
+                        if(v.types.indexOf("postal_code") > -1){
+                            maps_postal_code = v.short_name;
+                        }
+                    }
+                });
+                
+                // only set if NOT logged in.  Logged in users already have an address
+                // TODO: fix this as it does not support localization
+                var isLoggedIn = true;
+                if($('.text-info').text().startsWith("Already have an account")){
+                    isLoggedIn = false;
+                }
+                if(!isLoggedIn){
+                    var street_address = maps_street_number + " " + maps_route;
+                    $('input[name="address[0][address_1]"]').val(street_address);
+                    $('input[name="address[0][city]"]').val(maps_locality);
+                    $('input[name="address[0][state]"]').val(maps_administrative_area_level_1);
+                    $('input[name="address[0][postcode]"]').val(maps_postal_code);                    
+                }
+            }
             $.each(address_components, function(i, v) {
                 if(v.hasOwnProperty("types")){
                     if(v.types.indexOf("postal_code") > -1){
